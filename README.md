@@ -1,1 +1,1 @@
-# wwc_buddymeup
+# buddymeup
