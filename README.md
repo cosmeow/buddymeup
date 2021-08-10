@@ -1,1 +1,1 @@
-# buddymeup
+# Exercise Log project
