@@ -17,8 +17,8 @@ class ExerciseType(models.Model):
 
 class StrengthDiary(models.Model):
     type = models.ForeignKey(ExerciseType, on_delete=models.CASCADE)
-    reps = IntegerField()
     sets = IntegerField()
+    reps = IntegerField()
     strength_date = models.DateTimeField('strength exercise date')
 
     def strength_exercise_recently(self):
