@@ -53,6 +53,7 @@ class Activities(models.Model):
     date = models.DateTimeField()
     duration_hrs = models.PositiveIntegerField()
     duration_min = models.PositiveIntegerField()
-    duration_sec = models.PositiveIntegerField()    
+    duration_sec = models.PositiveIntegerField()
+    distance_km = models.PositiveIntegerField(default = 0)
     def cardio_exercise_recently(self):
         return self.date >= timezone.now() - datetime.timedelta(days=1)
