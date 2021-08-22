@@ -58,6 +58,7 @@ cover/
 # Django stuff:
 *.log
 exercise_log/settings.py
+ediary/migrations/
 db.sqlite3
 db.sqlite3-journal
 
