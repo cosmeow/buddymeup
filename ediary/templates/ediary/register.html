@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'ediary/style.css' %}">
+<html lang="en">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+<title>Register</title>
+</head>
+<body>
+    <div class="content">
+    <h1>Register for your Exercise diary!</h1>
+    <form>
+        <div class="row g-3 align-items-center">
+             <div class="col-auto">
+                 <label for="First Name" class="col-form-label">First Name</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" id="first_name" class="form-control" name="first_name">
+            </div>
+        </div>
+        <br>
+        <div class="row g-3 align-items-center">
+             <div class="col-auto">
+                <label for="First Name" class="col-form-label">Last Name</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" id="last_name" class="form-control" name="last_name">
+            </div>
+        </div>
+        <br>
+        <div class="row g-3 align-items-center">
+             <div class="col-auto">
+                <label for="email" class="col-form-label">Email</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" id="email" class="form-control" name="email">
+            </div>
+        </div>
+        <br>
+        <div class="row g-3 align-items-center">
+             <div class="col-auto">
+                <label for="password" class="col-form-label">password</label>
+            </div>
+            <div class="col-auto">
+                <input type="password" id="password" class="form-control" aria-describedby="passwordHelpInline">
+            </div>
+            <div class="col-auto">
+                <span id="passwordHelpInline" class="form-text">
+                Enter a combination of 10 letters, numbers, special characters
+                </span>
+            </div>
+        </div>
+            <br><br>
+            <button type="submit" class="button register-button">Register</button>
+        </form> 
+    </div>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  </body>
+</html>

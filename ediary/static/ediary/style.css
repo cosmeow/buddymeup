@@ -1,0 +1,27 @@
+.content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 10px;
+}
+.button {
+    background-color: #647687;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+.register-button {
+    background-color: #4CAF50; /* Green */
+}
+.form-label, .col-form-label {
+    background-color: #647687;
+    padding: 20px;
+    width: 150px;
+    color: white;
+}
+.col-form-label {
+    line-height: 3 !important;
+}
