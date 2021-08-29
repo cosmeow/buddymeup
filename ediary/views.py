@@ -12,7 +12,7 @@ def index(request):
 def register(request):
     return render(request, 'ediary/register.html')
 
-def home(request, User_id):
-    user = get_object_or_404(Users, pk=id)
-    return render(request, 'ediary/home.html')
+def home(request, users_id):
+    user = get_object_or_404(Users, pk=users_id)
+    return render(request, 'ediary/home.html', {'user': user})
     
