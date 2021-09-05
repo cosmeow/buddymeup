@@ -1,7 +1,40 @@
 {% extends 'ediary/base.html' %}
 {% block title %} Home {% endblock %}
 {% block content %}
-        <div class="content">
-        <h1>Hello {{user.first_name}}</h1>
+    <div class="content">
+        <h1>Hi {{user.first_name}}</h1>
+        <h2>Log your next workout below</h2>
+    </div>
+    <form>
+        <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label for="date" class="form-label">Date</label>
+                </div>
+                <div class="col-auto">
+                    <input type="date" class="form-control" id="date">
+                </div>
         </div>
+        <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label for="Location Type" class="form-label">Location Type</label>
+                </div>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm Location Type">
+                    <option selected>Select the location type</option>
+                    <option value="1">{{elocation.location_type}}</option>
+                    <option value="2">{{elocation.LOCATION_TYPE_CHOICES}}</option>
+                </select>
+                <div class="col-auto">
+                    <label for="Location" class="form-label">Location</label>
+                </div>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option selected>Select the location</option>
+                    <option value="1">{{elocation.location}}</option>
+                    <option value="2">{{elocation.location}}</option>
+                    <option value="3">{{elocation.location}}</option>
+                    <option value="4">{{elocation.location}}</option>
+                </select>
+        </div>
+       <br><br>
+        <button type="submit" class="register-button">Save</button>
+    </form>
 {% endblock %}

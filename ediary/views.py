@@ -14,5 +14,5 @@ def register(request):
 
 def home(request, users_id):
     user = get_object_or_404(Users, pk=users_id)
-    return render(request, 'ediary/home.html', {'user': user})
+    return render(request, 'ediary/home.html', {'user': user, 'elocation': ExerciseLocation})
     
