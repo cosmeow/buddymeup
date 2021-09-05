@@ -6,7 +6,7 @@ from django.utils import timezone
 
 # Create your models here.
 class ExerciseLocation(models.Model):
-    location = models.CharField(max_length=500)
+    location = models.CharField(max_length=500, default = 'Home')
     IN = 'IN'
     OUT = 'OUT'
     LOCATION_TYPE_CHOICES = (

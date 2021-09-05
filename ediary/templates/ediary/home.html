@@ -33,6 +33,12 @@
                     <option value="3">{{elocation.location}}</option>
                     <option value="4">{{elocation.location}}</option>
                 </select>
+                <p>Hello location {{elocation.location}}</p>
+                <p>Hello location type {{elocation.location_type}}</p>
+                <p>Hello location type choices {{elocation.LOCATION_TYPE_CHOICES}}</p>
+                {% for location in elocation.location %}
+                    <p>test {{location}}</p>
+                {% endfor %}
         </div>
        <br><br>
         <button type="submit" class="register-button">Save</button>

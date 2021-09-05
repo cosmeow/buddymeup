@@ -12,7 +12,11 @@ def index(request):
 def register(request):
     return render(request, 'ediary/register.html')
 
-def home(request, users_id):
+#def get_queryset(ExerciseLocation):
+#    return ExerciseLocation.objects.order_by('-location')[:5]   
+
+def home(request, users_id): 
     user = get_object_or_404(Users, pk=users_id)
-    return render(request, 'ediary/home.html', {'user': user, 'elocation': ExerciseLocation})
-    
+    elocation = get_object_or_404(ExerciseLocation, pk=1)
+#    return render(request, 'ediary/home.html', {'user': user, 'elocation': get_queryset(ExerciseLocation)})
+    return render(request, 'ediary/home.html', {'user': user, 'elocation': elocation})
