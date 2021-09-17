@@ -1,8 +1,9 @@
 {% extends 'ediary/base.html' %}
 {% block title %} Register {% endblock %}
 {% block content %}
-    <h1>Register for your Exercise diary!</h1>
-    <form>
+    <a href="{% url 'users_new' %}">Register for your Exercise diary!</a>
+    <form action "" method="POST" >
+    {% csrf_token %}
         <div class="row g-3 align-items-center">
              <div class="col-auto">
                  <label for="First Name" class="col-form-label">First Name</label>

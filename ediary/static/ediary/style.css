@@ -3,6 +3,10 @@
     margin: auto;
     padding: 10px;
 }
+.btn {
+    border: 1px solid black !important;
+    background-color:yellowgreen !important;
+}
 .button {
     background-color: #647687;
     border: none;
