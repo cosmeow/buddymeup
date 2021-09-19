@@ -15,14 +15,14 @@ def users_new(request):
       form = PostRegistrationForm(request.POST)
       if form.is_valid():
           users = form.save(commit=True)
-          return redirect('ediary:users_detail', pk=users.pk)
+          return redirect('ediary:users_reg_success', pk=users.pk)
     else:
         form = PostRegistrationForm()
     return render(request, 'ediary/users_edit.html', {'form': form})
 
-def users_detail(request, pk):
+def users_reg_success(request, pk):
     user = get_object_or_404(Users, pk=pk)
-    return render(request, 'ediary/users_detail.html', {'users': user})
+    return render(request, 'ediary/users_reg_success.html', {'users': user})
 
 def users_edit(request, pk):
     user = get_object_or_404(Users, pk=pk)
@@ -34,15 +34,15 @@ def users_edit(request, pk):
         else:
             form = PostRegistrationForm(instance=user)
         return render(request, 'ediary/users_edit.html', {'form': form})
-def register(request):
-    print(request.POST)
-    return render(request, 'ediary/register.html')
+# def register(request):
+#     print(request.POST)
+#     return render(request, 'ediary/register.html')
 
 def home(request, users_id):
     user = get_object_or_404(Users, pk=users_id)
     elocation = ExerciseLocation.objects.all()
     exercises = Exercise.objects.all()
-    activitylog = Activities.objects.all()
+    activitylog = Activities.objects.filter(user_id=users_id)
     context = {
         'user': user,
         'elocation': elocation,
