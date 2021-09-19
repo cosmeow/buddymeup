@@ -38,11 +38,15 @@ def register(request):
     print(request.POST)
     return render(request, 'ediary/register.html')
 
-#def get_queryset(ExerciseLocation):
-#    return ExerciseLocation.objects.order_by('-location')[:5]   
-
-def home(request, users_id): 
+def home(request, users_id):
     user = get_object_or_404(Users, pk=users_id)
-    elocation = get_object_or_404(ExerciseLocation, pk=1)
-#    return render(request, 'ediary/home.html', {'user': user, 'elocation': get_queryset(ExerciseLocation)})
-    return render(request, 'ediary/home.html', {'user': user, 'elocation': elocation})
+    elocation = ExerciseLocation.objects.all()
+    exercises = Exercise.objects.all()
+    activitylog = Activities.objects.all()
+    context = {
+        'user': user,
+        'elocation': elocation,
+        'exercises': exercises,
+        'activitylog': activitylog,
+    }
+    return render(request, 'ediary/home.html', context)

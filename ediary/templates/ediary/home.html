@@ -3,6 +3,35 @@
 {% block content %}
     <div class="content">
         <h1>Hi {{user.first_name}}</h1>
+        <br><br>
+        <h2>Your last 3 workouts:</h2>
+        <table class="table table-success table-striped">
+            <thead>
+                <tr>
+                    <th scope='col'>Date</th>
+                    <th scope='col'>Location</th>
+                    <th scope='col'>Exercise</th>
+                    <th scope='col'>Duration (min)</th>
+                    <th scope='col'>Distance (km)</th>                    
+                </tr>
+            </thead>   
+            <tbody>
+            {% for a in activitylog%}
+                 <tr>
+                    <td>{{a.date}}</td>
+                    <td>{{a.location}}</td>
+                    <td>{{a.exercise}}</td>
+                    <td>{{a.duration_min}}</td>
+                    <td>{{a.distance_km}}</td>
+                 </tr>
+            {% endfor %}
+            </tbody> 
+
+        </table>
+        <br><br>
+    </div> 
+       
+    <div class="content">
         <h2>Log your next workout below</h2>
     </div>
     <form>
@@ -16,31 +45,25 @@
         </div>
         <div class="row g-3 align-items-center">
                 <div class="col-auto">
-                    <label for="Location Type" class="form-label">Location Type</label>
-                </div>
-                <select class="form-select form-select-sm" aria-label=".form-select-sm Location Type">
-                    <option selected>Select the location type</option>
-                    <option value="1">{{elocation.location_type}}</option>
-                    <option value="2">{{elocation.LOCATION_TYPE_CHOICES}}</option>
-                </select>
-                <div class="col-auto">
                     <label for="Location" class="form-label">Location</label>
                 </div>
                 <select class="form-select form-select-sm" aria-label=".form-select-sm example">
                     <option selected>Select the location</option>
-                    <option value="1">{{elocation.location}}</option>
-                    <option value="2">{{elocation.location}}</option>
-                    <option value="3">{{elocation.location}}</option>
-                    <option value="4">{{elocation.location}}</option>
+                    {% for instance in elocation %}
+                        <option value={{instance.id}}>{{instance.location}}</option>
+                    {% endfor %}
                 </select>
-                <p>Hello location {{elocation.location}}</p>
-                <p>Hello location type {{elocation.location_type}}</p>
-                <p>Hello location type choices {{elocation.LOCATION_TYPE_CHOICES}}</p>
-                {% for location in elocation.location %}
-                    <p>test {{location}}</p>
-                {% endfor %}
+                <div class="col-auto">
+                    <label for="Exercise" class="form-label">Exercise</label>
+                </div>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option selected>Select the exercise</option>
+                    {% for e in exercises %}
+                        <option value={{e.id}}>{{e.exercise_name}}</option>
+                    {% endfor %}
+                </select>
         </div>
-       <br><br>
+        <br><br>
         <button type="submit" class="register-button">Save</button>
     </form>
 {% endblock %}

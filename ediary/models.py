@@ -46,16 +46,17 @@ class Exercise(models.Model):
             (CYCLE, 'Cycle'),
         )
     exercise_name = models.CharField(max_length = 5, choices = EXERCISE_CHOICES, default = RUN)
-    
+    def __str__(self):
+        return self.exercise_name
 
 class Activities(models.Model):
     user = models.ForeignKey(Users, on_delete = models.CASCADE)
     location = models.ForeignKey(ExerciseLocation, on_delete = models.CASCADE)
     exercise = models.ForeignKey(Exercise, on_delete = models.CASCADE)
     date = models.DateTimeField()
-    duration_hrs = models.PositiveIntegerField()
-    duration_min = models.PositiveIntegerField()
-    duration_sec = models.PositiveIntegerField()
-    distance_km = models.PositiveIntegerField(default = 0)
+    duration_hrs = models.PositiveIntegerField(default = 0)
+    duration_min = models.PositiveIntegerField(default = 0)
+    duration_sec = models.PositiveIntegerField(default = 0)
+    distance_km = models.DecimalField(max_digits=3, decimal_places=2)
     def cardio_exercise_recently(self):
         return self.date >= timezone.now() - datetime.timedelta(days=1)
