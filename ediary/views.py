@@ -2,7 +2,7 @@ from django import template
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
 from django.template import loader
-from .forms import PostRegistrationForm
+from .forms import PostRegistrationForm, PostActivityForm
 
 from .models import ExerciseLocation, Users, Exercise, Activities
 
@@ -50,3 +50,13 @@ def home(request, users_id):
         'activitylog': activitylog,
     }
     return render(request, 'ediary/home.html', context)
+
+def new_activity(request):
+    if request.method == "POST":
+        form = PostActivityForm(request.POST)
+        if form.is_valid():
+            activity = form.save(commit=True)
+            return render(request, 'ediary/new_activity.html', {'form': form}) 
+    else:
+        form = PostActivityForm()
+    return render(request, 'ediary/new_activity.html', {'form': form})    

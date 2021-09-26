@@ -9,8 +9,8 @@ class PostRegistrationForm(forms.ModelForm):
         model = Users
         fields = ('first_name', 'last_name','email','password',)
 
-# class PostActivityForm(forms.ModelForm):
+class PostActivityForm(forms.ModelForm):
 
-#     class Meta:
-#         model = Activities
-#         fields = ('location','exercise','duration_min', 'distance_km')
+    class Meta:
+        model = Activities
+        fields = ('user','date','location','exercise','duration_min', 'distance_km')

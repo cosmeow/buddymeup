@@ -1,0 +1,21 @@
+{% extends 'ediary/base.html' %}
+{% block title %} add your new activity {% endblock %}
+{% block content %}
+
+<!--<form method = "POST">
+{% csrf_token %}
+    <input type='id' name='User ID' placeholder = 'User ID'>
+    <input type='date' name='Date'>
+    <input type='text' name='Location ID' placeholder = 'Location ID'>
+    <input type='text' name='Exercise ID' placeholder = 'Exercise ID'>
+    <input type='text' name='Duration (min)' placeholder = 'Duration (min)'>
+    <input type='text' name='Distance (km)' placeholder = 'User ID'>
+    <button type='submit'>Save</button>
+</form> -->
+
+<form method="POST" class="post-form">{% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="save btn btn-default">Save</button>
+</form>
+
+{% endblock %}
